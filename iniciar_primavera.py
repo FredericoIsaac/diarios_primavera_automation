@@ -72,7 +72,7 @@ data = {
 
 
 
-def tirar_diarios(diarios):
+def tirar_diarios(diarios, data):
     """
     Tirar diarios da empresa durante o ano todo
     """
@@ -83,24 +83,22 @@ def tirar_diarios(diarios):
     # Colocar data incial
     data_inicial_imagem = pyautogui.locateOnScreen('imagens/data_inicial.png')
     center_data_inicial = pyautogui.center(data_inicial_imagem)
-    data_inicial = pyautogui.click(center_data_inicial.x + 44, center_data_inicial.y)
 
     # Colocar data fim
     data_final_imagem = pyautogui.locateOnScreen("imagens/data_final.png")
     center_data_final = pyautogui.center(data_final_imagem)
-    data_final = pyautogui.click(center_data_final.x + 40, center_data_final.y)
-
+    
     for diario in numero_diarios:
         for mes, mes_dia in data.items():
-            data_inicial
+            pyautogui.click(center_data_inicial.x + 44, center_data_inicial.y)
             # Escreve inicio do mes corrente
             pyautogui.write(mes_dia[0])
-            data_final
+            pyautogui.click(center_data_final.x + 40, center_data_final.y)
             # Escreve final do mes corrente
             pyautogui.write(mes_dia[1])
-            pausa_tempo(0.5)
 
     
 
 
-tirar_diarios(numero_diarios)
+
+tirar_diarios(numero_diarios, data)

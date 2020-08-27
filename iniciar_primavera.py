@@ -85,18 +85,18 @@ def tirar_diarios(diarios, data, empresa):
             if pyautogui.locateOnScreen('imagens/organizar_numero_doc.png') == None:
                 continue
 
-            elif diario in ("20","30"):
+            elif diario in ("20","30","60"):
                 # Organizar Lançamentos
                 pyautogui.click("imagens/organizar_numero_doc.png")
                 localizar_rato = pyautogui.position()
                 pyautogui.click(localizar_rato[0],localizar_rato[1] + 40, button="right")
-                pausa_tempo(0.5)
+                pausa_tempo(1.5)
                 pyautogui.click("imagens/organizar_ascendente.png")
                 pausa_tempo(5)
 
             # Imprimir
             pyautogui.click("imagens/imprimir_icone.png")
-            pausa_tempo(0.5)
+            pausa_tempo(3)
             pyautogui.press("enter")
             pausa_tempo(10)
             pyautogui.click("imagens/print_pdf.png")
@@ -117,7 +117,7 @@ def tirar_diarios(diarios, data, empresa):
 empresas_diarios = ["20225","10162","10119"]
 
 # List com o numero de diarios que se vai tirar
-numero_diarios = ["20","30","40","60","61","62","63","71"]
+numero_diarios = ["10","20","30","40,""61","62","63","71"]
 
 # Dict com as datas do inicio do mes e fim de 2019
 data = {
@@ -140,7 +140,7 @@ data = {
 # pausa_tempo(15)
 
 for i in range(len(empresas_diarios)):
-    entrar_empresa(empresa[i])
+    entrar_empresa(empresas_diarios[i])
     pausa_tempo(15)
     tirar_diarios(numero_diarios, data, empresas_diarios[i])
         

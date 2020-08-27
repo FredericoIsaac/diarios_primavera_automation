@@ -95,6 +95,7 @@ def tirar_diarios(diarios, data, empresa):
                 pausa_tempo(5)
 
             # Imprimir
+            pausa_tempo(2)
             pyautogui.click("imagens/imprimir_icone.png")
             pausa_tempo(3)
             pyautogui.press("enter")
@@ -114,10 +115,10 @@ def tirar_diarios(diarios, data, empresa):
             
 
             
-empresas_diarios = ["20225","10162","10119"]
+empresas_diarios = ["","","","",""]
 
 # List com o numero de diarios que se vai tirar
-numero_diarios = ["10","20","30","40,""61","62","63","71"]
+numero_diarios = ["61","62","63","71"]
 
 # Dict com as datas do inicio do mes e fim de 2019
 data = {
@@ -136,13 +137,17 @@ data = {
 }
 
 
-# entrar_primavera()
-# pausa_tempo(15)
+#entrar_primavera()
+#pausa_tempo(15)
 
 for i in range(len(empresas_diarios)):
+    # Control time
+    start_time = time.time()
     entrar_empresa(empresas_diarios[i])
     pausa_tempo(15)
     tirar_diarios(numero_diarios, data, empresas_diarios[i])
+    print(empresas_diarios[i])
+    print("--- %s seconds ---" % (time.time() - start_time))
         
 
 

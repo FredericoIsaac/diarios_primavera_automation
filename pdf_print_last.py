@@ -5,8 +5,8 @@ import PyPDF2
 meses = ["01","02","03","04","05","06","07","08","09","10","11","12"]
 #diario = ["20","30","60","61","62","71"]
 #diario = ["61","71"]
-diario = ["20"]
-empresa = "20242"
+diario = ["60"]
+empresa = "20207"
 
 
 for diario in diario:

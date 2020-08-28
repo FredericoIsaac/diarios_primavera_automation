@@ -115,10 +115,10 @@ def tirar_diarios(diarios, data, empresa):
             
 
             
-empresas_diarios = ["","","","",""]
+empresas_diarios = ["20242"]
 
 # List com o numero de diarios que se vai tirar
-numero_diarios = ["61","62","63","71"]
+numero_diarios = ["10","20","30","40"]
 
 # Dict com as datas do inicio do mes e fim de 2019
 data = {

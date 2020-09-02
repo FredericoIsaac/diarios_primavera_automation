@@ -14,7 +14,7 @@ while diario_input:
 # Pede os meses a tirar
 meses = []
 mes_input = input("Insira os meses que pretende tirar (enter para o ano inteiro): ")
-if not mes:
+if not mes_input:
     meses = ["01","02","03","04","05","06","07","08","09","10","11","12"]
 else:
     while mes_input:     
@@ -39,7 +39,7 @@ for diario in diarios:
         pdfWriter.addPage(pageObj)
 
         # new pdf file object 
-        newFile = open('pdf/{} - Imprimir diario {} de {}-2019.pdf'.format(empresa, diario, mes), 'wb') 
+        newFile = open('imprimir_pdf/{} - Imprimir diario {} de {}-2019.pdf'.format(empresa, diario, mes), 'wb') 
 
         # writing watermarked pages to new file 
         pdfWriter.write(newFile) 

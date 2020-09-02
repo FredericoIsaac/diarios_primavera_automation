@@ -111,14 +111,12 @@ def tirar_diarios(diarios, data, empresa):
             center_extrato_impressao = pyautogui.center(extrato_impressao)
             pyautogui.click(center_extrato_impressao.x + 733, center_extrato_impressao.y)
 
-
+    
             
-
-            
-empresas_diarios = ["10168","20252","30374","30382","10203","10105"]
+empresas_diarios = ["30383","10105"]
 
 # List com o numero de diarios que se vai tirar
-numero_diarios = ["10","20","30","40","60","61","62","71"]
+numero_diarios = ["20","30","40","60","61","62","71"]
 
 # Dict com as datas do inicio do mes e fim de 2019
 data = {
@@ -137,8 +135,10 @@ data = {
 }
 
 
-#entrar_primavera()
-#pausa_tempo(15)
+entrar_primavera()
+pausa_tempo(20)
+# Create a variable to reset Primavera
+count = 0
 
 for i in range(len(empresas_diarios)):
     # Control time
@@ -147,7 +147,18 @@ for i in range(len(empresas_diarios)):
     pausa_tempo(15)
     tirar_diarios(numero_diarios, data, empresas_diarios[i])
     print(empresas_diarios[i])
+    count += 1
+    if count == 3:
+        pausa_tempo(2)
+        pyautogui.click("imagens/reset_primavera.png")
+        pausa_tempo(1)
+        pyautogui.press("enter")
+        pausa_tempo(20)
+        entrar_primavera()
+        pausa_tempo(20)
+        count = 0
     print("--- %s seconds ---" % (time.time() - start_time))
-        
+
+
 
 

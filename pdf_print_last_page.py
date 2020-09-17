@@ -9,6 +9,7 @@ Installations:
 
 import PyPDF2, os, send2trash
 
+# The path where the files are
 file_path = "C:\\Users\\Frede\\vs_projects\\diarios_primavera_automation\\pdf"
 
 # Get a list of files in the dir

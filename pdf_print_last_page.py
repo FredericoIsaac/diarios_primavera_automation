@@ -10,20 +10,19 @@ Installations:
 import PyPDF2, os, send2trash
 
 # The path where the files are
-file_path = "C:\\Users\\Frede\\vs_projects\\diarios_primavera_automation\\pdf"
+files_path = "C:\\Users\\Frede\\vs_projects\\diarios_primavera_automation\\pdf"
 
 # Get a list of files in the dir
-for files in os.walk(file_path):
+for files in os.walk(files_path):
     files = list(files[2])
     print(files)
 
 
 for count,file in enumerate(files):
-    print(count)
-    print(file)
+    file_path = files_path + '\\' + file
 
     # PDF file object
-    pdf_file = open(file_path + '\\' + file, 'rb')
+    pdf_file = open(file_path, 'rb')
 
     # Creating a pdf reader object 
     pdf_reader = PyPDF2.PdfFileReader(pdf_file)
@@ -38,7 +37,8 @@ for count,file in enumerate(files):
     pdf_writer.addPage(last_page)
 
     # open a new pdf file
-    new_file = open(file_path + "\\Imprimir - " + file,  "wb")
+    new_file_path = files_path + "\\Imprimir - " + file
+    new_file = open(new_file_path,  "wb")
 
     # Writing in the new file
     pdf_writer.write(new_file)
@@ -48,6 +48,11 @@ for count,file in enumerate(files):
     new_file.close()
 
     # Delete old file
-    send2trash.send2trash(file_path + '\\' + file)
-    
+    send2trash.send2trash(file_path)
 
+    # Print new pdf
+    os.startfile(new_file_path, "print")
+    for pdf in psutil.process_iter():
+        if "AcroRd" in str(pdf):
+            p.kill()
+    

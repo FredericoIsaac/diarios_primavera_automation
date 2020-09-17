@@ -148,6 +148,7 @@ for i in range(len(empresas_diarios)):
     tirar_diarios(numero_diarios, data, empresas_diarios[i])
     print(empresas_diarios[i])
     count += 1
+    # Fecha programa e volta a entrar
     if count == 3:
         pausa_tempo(2)
         pyautogui.click("imagens/reset_primavera.png")
